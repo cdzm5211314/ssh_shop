@@ -54,7 +54,9 @@
 	
 	<!-- Action的配置 ============================-->
 	<!-- 首页访问页面 -->
-	<bean id="indexAction" class="cn.itcast.shop.index.action.IndexAction"  scope="prototype">
+	<bean id="indexAction" class="cn.itcast.shop.index.action.IndexAction"  scope="prototype"/>
+	<!-- 用户模块Action -->
+	<bean id="userAction" class="cn.itcast.shop.user.action.UserAction" scope="prototype">
 	
 	</bean>
 	

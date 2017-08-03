@@ -12,7 +12,11 @@
 		<action name="index" class="indexAction" >
 			<result name="indexSUCCESS">/WEB-INF/jsp/index.jsp</result>
 		</action>
-
+		<!-- 用户模块 -->
+		<action name="user_*" class="userAction" method="{1}">
+			<!-- 跳转注册页面 -->
+			<result name="registPageSUCCESS">/WEB-INF/jsp/regist.jsp</result>
+		</action>
 
 	</package>
 	
