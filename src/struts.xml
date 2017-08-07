@@ -27,6 +27,8 @@
 			<result name="loginPageSUCCESS">/WEB-INF/jsp/login.jsp</result>
 			<result name="login">/WEB-INF/jsp/login.jsp</result>
 			<result name="loginSUCCESS" type="redirectAction">index</result>
+			<!-- 退出登录 -->
+			<result name="quitSUCCESS" type="redirectAction">index</result>
 			
 		</action>
 

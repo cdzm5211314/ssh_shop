@@ -35,7 +35,16 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
-	
+	/*
+	 * 用户的退出操作
+	 */
+	public  String quit(){
+		
+		//销毁session
+		ServletActionContext.getRequest().getSession().invalidate();
+		
+		return "quitSUCCESS";
+	}
 	/*
 	 * 用户登录操作
 	 */

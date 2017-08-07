@@ -21,7 +21,7 @@
 				</li>
 				<li id="headerRegister" class="headerRegister"
 					style="display: list-item;">
-					<a href="#">退出</a>|
+					<a href="${pageContext.request.contextPath}/user_quit.action">退出</a>|
 				</li>
 			</s:else>
 			<li><a>会员中心</a> |</li>
