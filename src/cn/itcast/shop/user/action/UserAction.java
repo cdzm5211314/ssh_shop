@@ -35,6 +35,27 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
+	
+	/*
+	 * 用户登录操作
+	 */
+	public  String login(){
+		
+		User userinfo = userService.login(user);
+		//判断用户
+		if (userinfo == null) {
+			//登录失败
+			this.addActionError("登录失败:用户名或密码错误或用户未激活");
+			return LOGIN;
+		}else {
+			//登录成功
+			//把用户保存到session中并完成跳转
+			ServletActionContext.getRequest().getSession().setAttribute("user", userinfo);
+			return "loginSUCCESS";
+		}
+	}
+	
+	
 	/*
 	 * 注册保存用户信息
 	 */

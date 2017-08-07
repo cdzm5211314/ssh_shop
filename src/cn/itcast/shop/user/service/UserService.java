@@ -76,6 +76,17 @@ public class UserService {
 	public void update(User userinfo) {
 		userDao.update(userinfo);
 	}
+	/**
+	 * @方法的名称: login
+	 * @Description: 用户登录操作
+	 * @Author: chenD
+	 * @CreateDate: Aug 7, 2017 12:22:31 PM
+	 * @param user
+	 * @return User
+	 */
+	public User login(User user) {
+		return userDao.login(user);
+	}
 
 	
 	

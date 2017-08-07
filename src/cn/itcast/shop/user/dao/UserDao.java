@@ -76,6 +76,22 @@ public class UserDao extends HibernateDaoSupport{
 	public void update(User userinfo) {
 		this.getHibernateTemplate().update(userinfo);
 	}
+
+	/**
+	 * @方法的名称: login
+	 * @Description: 用户登录操作
+	 * @Author: chenD
+	 * @CreateDate: Aug 7, 2017 12:22:51 PM
+	 * @return User
+	 */
+	public User login(User user) {
+		String hql = "from User where username = ? and password = ? and state = ?";
+		List<User> list = this.getHibernateTemplate().find(hql, user.getUsername(),user.getPassword(),1);
+		if (list != null && list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
+	}
 	
 	
 	
