@@ -41,6 +41,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>cn/itcast/shop/user/entity/User.hbm.xml</value>
+				<value>cn/itcast/shop/category/entity/Category.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -57,7 +58,9 @@
 	<!-- Action的配置 ============================ -->
 	<!-- 首页访问页面 -->
 	<bean id="indexAction" class="cn.itcast.shop.index.action.IndexAction"
-		scope="prototype" />
+		scope="prototype" >
+		<property name="categoryService" ref="categoryService"></property>	
+	</bean>
 	<!-- 配置验证码 -->
 	<bean id="checkImgAction" class="cn.itcast.shop.user.action.CheckImgAction"
 		scope="prototype" />
@@ -67,16 +70,26 @@
 		<property name="userService" ref="userService"></property>
 	</bean>
 
+
+
 	<!-- Service的配置 =========================== -->
-	<!-- 用户模块Service -->
 	<bean id="userService" class="cn.itcast.shop.user.service.UserService">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
+	<bean id="categoryService" class="cn.itcast.shop.category.service.CategoryService">
+		<property name="categoryDao" ref="categoryDao"></property>
+	</bean>
+
+
 
 	<!-- Dao的配置 =============================== -->
-	<!-- 用户模块Dao -->
 	<bean id="userDao" class="cn.itcast.shop.user.dao.UserDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+	<bean id="categoryDao" class="cn.itcast.shop.category.dao.CategoryDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	
 </beans>
