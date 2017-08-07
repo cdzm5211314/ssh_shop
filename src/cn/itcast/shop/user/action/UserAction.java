@@ -34,6 +34,14 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
+	/*
+	 * 注册保存用户信息
+	 */
+	public String save(){
+		
+		userService.saveUser(user);
+		return "saveSUCCESS";
+	}
 
 	/**
 	 * ajax异步操作校验用户名是否存在

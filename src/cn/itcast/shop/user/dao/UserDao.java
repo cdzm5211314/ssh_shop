@@ -34,6 +34,17 @@ public class UserDao extends HibernateDaoSupport{
 		}
 		return null;
 	}
+
+	/**
+	 * @方法的名称: save
+	 * @Description: 保存用户注册信息到数据库
+	 * @Author: chenD
+	 * @CreateDate: Aug 7, 2017 9:14:52 AM
+	 * @param user void
+	 */
+	public void save(User user) {
+		this.getHibernateTemplate().save(user);
+	}
 	
 	
 	

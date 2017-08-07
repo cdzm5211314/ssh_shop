@@ -99,7 +99,7 @@
 					<div class="title">
 						<strong>会员注册</strong>USER REGISTER
 					</div>
-					<form id="registerForm" method="post" novalidate="novalidate"
+					<form id="registerForm" action="${pageContext.request.contextPath}/user_save.action" method="post" novalidate="novalidate"
 						onsubmit="return checkForm();">
 						<table>
 							<tbody>

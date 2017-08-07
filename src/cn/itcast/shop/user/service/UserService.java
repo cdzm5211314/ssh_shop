@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.shop.user.dao.UserDao;
 import cn.itcast.shop.user.entity.User;
+import cn.itcast.shop.utils.UUIDUtils;
 
 /**
  * @ClassName: UserService
@@ -32,6 +33,23 @@ public class UserService {
 	 */
 	public User findByUsername(String username) {
 		return userDao.findByUsername(username);
+	}
+	/**
+	 * @方法的名称: saveUser
+	 * @Description: 注册用户保存信息
+	 * @Author: chenD
+	 * @CreateDate: Aug 7, 2017 9:07:10 AM
+	 * @param user void
+	 */
+	public void saveUser(User user) {
+		
+		//设置用户信息的  状态码和code信息
+		user.setState(0); //0: 表示未激活 1:表示已激活
+		String code = UUIDUtils.getUUID()+UUIDUtils.getUUID();
+		user.setCode(code);
+		//保存用户信息到数据库
+		userDao.save(user);
+		
 	}
 
 	
