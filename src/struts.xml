@@ -8,6 +8,10 @@
     <constant name="struts.devMode" value="false" />
 
 	<package name="shop" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
+		</global-results>
+	
 		<!-- 首页访问跳转页面 -->
 		<action name="index" class="indexAction" >
 			<result name="indexSUCCESS">/WEB-INF/jsp/index.jsp</result>
@@ -16,6 +20,12 @@
 		<action name="user_*" class="userAction" method="{1}">
 			<!-- 跳转注册页面 -->
 			<result name="registPageSUCCESS">/WEB-INF/jsp/regist.jsp</result>
+			<result name="input">/WEB-INF/jsp/regist.jsp</result>
+			<!-- 用户注册后跳转页面 -->
+<!-- 			<result name="msg">/WEB-INF/jsp/msg.jsp</result> -->
+			<!-- 登录跳转页面 -->
+			<result name="loginPageSUCCESS">/WEB-INF/jsp/login.jsp</result>
+			
 		</action>
 
 	</package>

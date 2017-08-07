@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.shop.user.dao.UserDao;
 import cn.itcast.shop.user.entity.User;
+import cn.itcast.shop.utils.MailUitls;
 import cn.itcast.shop.utils.UUIDUtils;
 
 /**
@@ -44,12 +45,36 @@ public class UserService {
 	public void saveUser(User user) {
 		
 		//设置用户信息的  状态码和code信息
-		user.setState(0); //0: 表示未激活 1:表示已激活
+		user.setState(1); //0: 表示未激活 1:表示已激活
 		String code = UUIDUtils.getUUID()+UUIDUtils.getUUID();
 		user.setCode(code);
 		//保存用户信息到数据库
 		userDao.save(user);
 		
+		//发送邮件激活码
+//		MailUitls.sendMail(user.getEmail(), code);s
+		
+	}
+	/**
+	 * @方法的名称: findByUsername
+	 * @Description: 根据激活码查询用户
+	 * @Author: chenD
+	 * @CreateDate: Aug 7, 2017 10:53:52 AM
+	 * @param code
+	 * @return User
+	 */
+	public User findByCode(String code) {
+		return userDao.findByCode(code);
+	}
+	/**
+	 * @方法的名称: update
+	 * @Description: 用户激活成功
+	 * @Author: chenD
+	 * @CreateDate: Aug 7, 2017 11:02:28 AM
+	 * @param userinfo void
+	 */
+	public void update(User userinfo) {
+		userDao.update(userinfo);
 	}
 
 	

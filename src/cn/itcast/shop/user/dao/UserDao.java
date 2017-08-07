@@ -5,6 +5,8 @@ package cn.itcast.shop.user.dao;
 
 import java.util.List;
 
+import javax.persistence.criteria.From;
+
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.itcast.shop.user.entity.User;
@@ -44,6 +46,35 @@ public class UserDao extends HibernateDaoSupport{
 	 */
 	public void save(User user) {
 		this.getHibernateTemplate().save(user);
+	}
+
+	/**
+	 * @方法的名称: findByCode
+	 * @Description: 根据激活码查询用户
+	 * @Author: chenD
+	 * @CreateDate: Aug 7, 2017 10:54:24 AM
+	 * @param code
+	 * @return User
+	 */
+	public User findByCode(String code) {
+		
+		String hql = "from User where code = ?";
+		List<User> list= this.getHibernateTemplate().find(hql,code);
+		if (list != null && list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
+	}
+
+	/**
+	 * @方法的名称: update
+	 * @Description: 激活用户修改状态码和情况code信息
+	 * @Author: chenD
+	 * @CreateDate: Aug 7, 2017 11:03:02 AM
+	 * @param userinfo void
+	 */
+	public void update(User userinfo) {
+		this.getHibernateTemplate().update(userinfo);
 	}
 	
 	

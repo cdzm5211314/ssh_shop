@@ -5,6 +5,7 @@ package cn.itcast.shop.user.action;
 
 import java.io.IOException;
 
+import javax.print.attribute.standard.RequestingUserName;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -40,7 +41,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public String save(){
 		
 		userService.saveUser(user);
-		return "saveSUCCESS";
+		this.addActionMessage("注册成功,请去邮箱激活...");
+		return "msg";
 	}
 
 	/**
@@ -72,6 +74,35 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		
 		return "registPageSUCCESS";
 	}
-
+	/*
+	 * 跳转到登录页面
+	 */
+	public String loginPage(){
+		
+		return "loginPageSUCCESS";
+	}
+	
+	
+	/*
+	 * 激活注册的用户
+	 */
+	public  String active(){
+	
+		//根据激活码查询用户信息
+		User userinfo = userService.findByUsername(user.getCode());
+		if (userinfo == null) {
+			this.addActionMessage("用户激活失败....");
+		}else {
+			//修改用户状态,清空激活码信息
+			userinfo.setState(1);
+			userinfo.setCode(null);
+			
+			userService.update(userinfo);
+			this.addActionMessage("激活成功,请去登录...");
+		}
+		return "msg";
+	}
+	
+	
 	
 }
