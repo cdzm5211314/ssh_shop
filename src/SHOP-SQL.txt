@@ -34,7 +34,42 @@ CREATE TABLE `categorysecond` (
   CONSTRAINT `FK936FCAF21DB1FD15` FOREIGN KEY (`cid`) REFERENCES `category` (`cid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
-INSERT INTO `categorysecond` VALUES (1,'潮流女装',1),(2,'初冬羽绒',1),(3,'毛呢大衣',1),(4,'温暖毛衣',1),(5,'精选男装',1),(6,'冬季外套',1),(7,'羽绒服',1),(9,'女鞋',2),(10,'短靴',2),(11,'男鞋',2),(12,'女包',2),(13,'男包',2),(14,'服饰配件',2),(15,'运动鞋',3),(16,'运动服',3),(17,'户外运动',3),(18,'健身装备',3),(19,'骑行装备',3),(20,'珠宝首饰',4),(21,'时尚饰品',4),(22,'品质手表',4),(23,'眼镜配饰',4),(24,'手机',5),(25,'平板',5),(26,'电脑',5),(27,'相机',5),(28,'大家电',6),(29,'厨房电器',6),(30,'生活电器',6),(31,'个户电器',6),(32,'办公耗材',6),(33,'美容护肤',7),(34,'强效保养',7),(35,'超值彩妆',7),(36,'换季保养',7),(40,'组合柜222',10);
+INSERT INTO `categorysecond` VALUES (1,'潮流女装',1);
+INSERT INTO `categorysecond` VALUES (2,'初冬羽绒',1);
+INSERT INTO `categorysecond` VALUES (3,'毛呢大衣',1);
+INSERT INTO `categorysecond` VALUES (4,'温暖毛衣',1);
+INSERT INTO `categorysecond` VALUES (5,'精选男装',1);
+INSERT INTO `categorysecond` VALUES (6,'冬季外套',1);
+INSERT INTO `categorysecond` VALUES (7,'羽绒服',1);
+INSERT INTO `categorysecond` VALUES (9,'女鞋',2);
+INSERT INTO `categorysecond` VALUES (10,'短靴',2);
+INSERT INTO `categorysecond` VALUES (11,'男鞋',2);
+INSERT INTO `categorysecond` VALUES (12,'女包',2);
+INSERT INTO `categorysecond` VALUES (13,'男包',2);
+INSERT INTO `categorysecond` VALUES (14,'服饰配件',2);
+INSERT INTO `categorysecond` VALUES (15,'运动鞋',3);
+INSERT INTO `categorysecond` VALUES (16,'运动服',3);
+INSERT INTO `categorysecond` VALUES (17,'户外运动',3);
+INSERT INTO `categorysecond` VALUES (18,'健身装备',3);
+INSERT INTO `categorysecond` VALUES (19,'骑行装备',3);
+INSERT INTO `categorysecond` VALUES (20,'珠宝首饰',4);
+INSERT INTO `categorysecond` VALUES (21,'时尚饰品',4);
+INSERT INTO `categorysecond` VALUES (22,'品质手表',4);
+INSERT INTO `categorysecond` VALUES (23,'眼镜配饰',4);
+INSERT INTO `categorysecond` VALUES (24,'手机',5);
+INSERT INTO `categorysecond` VALUES (25,'平板',5);
+INSERT INTO `categorysecond` VALUES (26,'电脑',5);
+INSERT INTO `categorysecond` VALUES (27,'相机',5);
+INSERT INTO `categorysecond` VALUES (28,'大家电',6);
+INSERT INTO `categorysecond` VALUES (29,'厨房电器',6);
+INSERT INTO `categorysecond` VALUES (30,'生活电器',6);
+INSERT INTO `categorysecond` VALUES (31,'个户电器',6);
+INSERT INTO `categorysecond` VALUES (32,'办公耗材',6);
+INSERT INTO `categorysecond` VALUES (33,'美容护肤',7);
+INSERT INTO `categorysecond` VALUES (34,'强效保养',7);
+INSERT INTO `categorysecond` VALUES (35,'超值彩妆',7);
+INSERT INTO `categorysecond` VALUES (36,'换季保养',7);
+INSERT INTO `categorysecond` VALUES (40,'组合柜222',10);
 
 ###########################################################################################
 /*创建商品表*/

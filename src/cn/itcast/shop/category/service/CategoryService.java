@@ -5,6 +5,8 @@ package cn.itcast.shop.category.service;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import cn.itcast.shop.category.dao.CategoryDao;
 import cn.itcast.shop.category.entity.Category;
 
@@ -14,6 +16,7 @@ import cn.itcast.shop.category.entity.Category;
  * @Author: ChenD
  * @CreateDate: Aug 7, 2017 3:05:44 PM
  */
+@Transactional
 public class CategoryService {
 	
 	//注入dao	
