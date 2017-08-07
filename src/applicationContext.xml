@@ -58,6 +58,9 @@
 	<!-- 首页访问页面 -->
 	<bean id="indexAction" class="cn.itcast.shop.index.action.IndexAction"
 		scope="prototype" />
+	<!-- 配置验证码 -->
+	<bean id="checkImgAction" class="cn.itcast.shop.user.action.CheckImgAction"
+		scope="prototype" />
 	<!-- 用户模块Action -->
 	<bean id="userAction" class="cn.itcast.shop.user.action.UserAction"
 		scope="prototype">

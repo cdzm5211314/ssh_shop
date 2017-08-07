@@ -35,6 +35,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
+	//属性驱动
+	private String checkCode;
+	public void setCheckCode(String checkCode) {
+		this.checkCode = checkCode;
+	}
 	/*
 	 * 用户的退出操作
 	 */
@@ -70,6 +75,13 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	 */
 	public String save(){
 		
+		//从session中获取验证码随机值(CheckImgAction.java)
+		String checkCode1 = (String) ServletActionContext.getRequest().getSession().getAttribute("checkCode");
+		//判断session中的验证是否与注册页面的验证码值是否一致
+		if (!checkCode.equalsIgnoreCase(checkCode1) ) {
+			this.addActionError("验证码输入错误...");
+			return "checkCodeFail";
+		}
 		userService.saveUser(user);
 		this.addActionMessage("注册成功,请去邮箱激活...");
 		return "msg";

@@ -69,6 +69,13 @@
 		return xmlHttp;
 	}
 	
+	//验证码点击事件
+	function change(){
+		//获取照片信息
+		var img = document.getElementById("checkImg");
+		img.src = "${pageContext.request.contextPath}/checkImg.action?"+new Date().getTime();
+		
+	}
 	
 </script>
 </head>
@@ -147,11 +154,13 @@
 								<tr>
 									<th><span class="requiredField">*</span>验证码:</th>
 									<td><span class="fieldSet"> <input type="text"
-											id="captcha" name="captcha" class="text captcha"
-											maxlength="4" autocomplete="off" /><img id="captchaImage"
+											id="checkCode" name="checkCode" class="text captcha"
+											maxlength="4" autocomplete="off" />
+											<img id="checkImg"
 											class="captchaImage"
-											src="${pageContext.request.contextPath}/image/captcha.jhtml"
-											title="点击更换验证码" /></span></td>
+											src="${pageContext.request.contextPath}/checkImg.action" onclick="change()"
+											title="点击更换验证码" />
+											<font color="red"><s:actionerror /></font></span></td>
 								</tr>
 								<tr>
 									<th>&nbsp;</th>

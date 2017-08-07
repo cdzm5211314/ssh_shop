@@ -29,9 +29,13 @@
 			<result name="loginSUCCESS" type="redirectAction">index</result>
 			<!-- 退出登录 -->
 			<result name="quitSUCCESS" type="redirectAction">index</result>
+			<!-- 验证码输入跳转页面 -->
+			<result name="checkCodeFail">/WEB-INF/jsp/regist.jsp</result>
 			
 		</action>
-
+		
+		<!-- 验证码的action -->
+		<action name="checkImg" class="checkImgAction"></action>
 	</package>
 	
 	
