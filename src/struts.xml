@@ -33,6 +33,14 @@
 			<result name="checkCodeFail">/WEB-INF/jsp/regist.jsp</result>
 			
 		</action>
+		<!-- 商品模块 -->
+		<action name="product_*" class="productAction" method="{1}">
+			<!-- 根据id查询商品的详细信息 -->
+			<result name="findByIdSUCCESS">/WEB-INF/jsp/product.jsp</result>
+			
+		
+		</action>
+		
 		
 		<!-- 验证码的action -->
 		<action name="checkImg" class="checkImgAction"></action>

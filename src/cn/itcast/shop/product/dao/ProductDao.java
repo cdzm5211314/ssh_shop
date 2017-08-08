@@ -60,4 +60,17 @@ public class ProductDao extends HibernateDaoSupport {
 		return list;
 	}
 
+	/**
+	 * @方法的名称: findById
+	 * @Description: TODO
+	 * @Author: chenD
+	 * @CreateDate: Aug 8, 2017 2:44:25 PM
+	 * @param pid
+	 * @return Product
+	 */
+	public Product findById(Integer pid) {
+		
+		return this.getHibernateTemplate().get(Product.class, pid);
+	}
+
 }

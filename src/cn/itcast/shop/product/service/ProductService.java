@@ -44,6 +44,18 @@ public class ProductService {
 	public List<Product> findNew() {
 		return productDao.findNew();
 	}
+	/**
+	 * @方法的名称: findById
+	 * @Description: 根据id查询商品的详细信息
+	 * @Author: chenD
+	 * @CreateDate: Aug 8, 2017 2:43:41 PM
+	 * @param pid
+	 * @return Product
+	 */
+	public Product findById(Integer pid) {
+		return productDao.findById(pid);
+	}
+
 	
 	
 }
