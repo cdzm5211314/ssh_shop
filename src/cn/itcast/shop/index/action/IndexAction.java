@@ -46,6 +46,12 @@ public class IndexAction extends ActionSupport{
 		//将查询的数据放到值栈中
 		ActionContext.getContext().getValueStack().set("hlist", hlist);
 		
+		//查询最新商品的所有数据信息
+		//根据product 表中的pdate字段
+		List<Product> nlist = productService.findNew();
+		//将查询的数据放到值栈中
+		ActionContext.getContext().getValueStack().set("nlist", nlist);
+		
 		return  "indexSUCCESS";
 	}  
 	

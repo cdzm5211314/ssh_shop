@@ -34,6 +34,16 @@ public class ProductService {
 	public List<Product> findHot() {
 		return productDao.findHot();
 	}
+	/**
+	 * @方法的名称: findNew
+	 * @Description: 首页查询最新的商品
+	 * @Author: chenD
+	 * @CreateDate: Aug 8, 2017 2:10:06 PM
+	 * @return List<Product>
+	 */
+	public List<Product> findNew() {
+		return productDao.findNew();
+	}
 	
 	
 }

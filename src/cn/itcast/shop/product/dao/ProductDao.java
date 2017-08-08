@@ -14,7 +14,7 @@ import cn.itcast.shop.product.entity.Product;
 
 /**
  * @ClassName: ProductDao
- * @Description: 商品信息持久层 
+ * @Description: 商品信息持久层
  * @Author: ChenD
  * @CreateDate: Aug 7, 2017 4:03:26 PM
  */
@@ -28,19 +28,36 @@ public class ProductDao extends HibernateDaoSupport {
 	 * @return List<Product>
 	 */
 	public List<Product> findHot() {
-		
-		//使用离线条件查询
-		DetachedCriteria criteria = DetachedCriteria.forClass(Product.class);	
-		//热门商品的条件 is_hot = 1
+
+		// 使用离线条件查询
+		DetachedCriteria criteria = DetachedCriteria.forClass(Product.class);
+		// 热门商品的条件 is_hot = 1
 		criteria.add(Restrictions.eq("is_hot", 1));
-		//倒序的排序输出
+		// 倒序的排序输出
 		criteria.addOrder(Order.desc("pdate"));
-		//执行查询
-		List<Product> list = this.getHibernateTemplate().findByCriteria(criteria,0,10);
-		
+		// 执行查询
+		List<Product> list = this.getHibernateTemplate().findByCriteria(criteria, 0, 10);
+
 		return list;
 	}
 
-	
-	
+	/**
+	 * @方法的名称: findNew
+	 * @Description: 首页查询最新商品信息
+	 * @Author: chenD
+	 * @CreateDate: Aug 8, 2017 2:10:37 PM
+	 * @return List<Product>
+	 */
+	public List<Product> findNew() {
+
+		// 使用离线条件查询
+		DetachedCriteria criteria = DetachedCriteria.forClass(Product.class);
+		// 倒序的排序输出
+		criteria.addOrder(Order.desc("pdate"));
+		//执行查询
+		List<Product> list = this.getHibernateTemplate().findByCriteria(criteria, 0, 10);
+
+		return list;
+	}
+
 }
