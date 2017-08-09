@@ -57,7 +57,7 @@
 				<div id="result" class="result table clearfix">
 					<ul>
 						<s:iterator value="pageBean.list" var="product">
-							<li><a href="./京华商城分页面.htm"> <img
+							<li><a href="${pageContext.request.contextPath}/product_findById.action?pid=<s:property value="#product.pid"/>"> <img
 									src="${pageContext.request.contextPath}/<s:property value="#product.image"/>"
 									width="170" height="170" style="display: inline-block;" />
 
