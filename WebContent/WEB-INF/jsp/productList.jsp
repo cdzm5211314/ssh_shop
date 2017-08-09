@@ -36,7 +36,7 @@
 					<dl>
 						<dt>
 							<a
-								href="${pageContext.request.contextPath}/image/蔬菜 - Powered By Mango Team.htm"><s:property
+								href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="#category.cid"/>&page=1"><s:property
 									value="#category.cname" /> </a>
 						</dt>
 						<s:iterator value="#category.categorySeconds" var="categorySecond">
