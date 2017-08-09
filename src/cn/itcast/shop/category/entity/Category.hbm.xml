@@ -9,7 +9,11 @@
 		</id>
 		<property name="cname" column="cname"></property>
 		
-		
+		<!-- 一的一方:配置二级分类的集合:order-by="csid" 查询的结果排序 -->
+		<set order-by="csid" name="categorySeconds" lazy="false">
+			<key column="cid"></key>
+			<one-to-many class="cn.itcast.shop.categorysecond.entity.CategorySecond"/>
+		</set>
 	</class>
 	
 </hibernate-mapping>

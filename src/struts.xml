@@ -37,6 +37,8 @@
 		<action name="product_*" class="productAction" method="{1}">
 			<!-- 根据id查询商品的详细信息 -->
 			<result name="findByIdSUCCESS">/WEB-INF/jsp/product.jsp</result>
+			<result name="findByCidSUCCESS">/WEB-INF/jsp/productList.jsp</result>
+			
 			
 		
 		</action>

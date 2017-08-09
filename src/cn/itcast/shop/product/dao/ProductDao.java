@@ -11,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.itcast.shop.product.entity.Product;
+import cn.itcast.shop.utils.PageHibernateCallback;
 
 /**
  * @ClassName: ProductDao
@@ -54,7 +55,7 @@ public class ProductDao extends HibernateDaoSupport {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Product.class);
 		// 倒序的排序输出
 		criteria.addOrder(Order.desc("pdate"));
-		//执行查询
+		// 执行查询
 		List<Product> list = this.getHibernateTemplate().findByCriteria(criteria, 0, 10);
 
 		return list;
@@ -69,8 +70,54 @@ public class ProductDao extends HibernateDaoSupport {
 	 * @return Product
 	 */
 	public Product findById(Integer pid) {
-		
+
 		return this.getHibernateTemplate().get(Product.class, pid);
+	}
+
+	/**
+	 * @方法的名称: findCountCid
+	 * @Description: 根据分类的id查询商品的总数
+	 * @Author: chenD
+	 * @CreateDate: Aug 9, 2017 11:07:37 AM
+	 * @param cid
+	 * @return int
+	 */
+	public int findCountCid(Integer cid) {
+		String hql = "select count(*) from Product p where p.categorySecond.category.cid = ?";
+		// 返回的数据类型的Long类型
+		List<Long> list = this.getHibernateTemplate().find(hql, cid);
+		// 把Long类型数据转换成int类型
+		if (list != null && list.size() > 0) {
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	/**
+	 * @方法的名称: fingByPageCid
+	 * @Description: 根据分类的id查询商品的集合
+	 * @Author: chenD
+	 * @CreateDate: Aug 9, 2017 11:19:00 AM
+	 * @param cid
+	 * @param begin
+	 * @param limit
+	 * @return List<Product>
+	 */
+	public List<Product> fingByPageCid(Integer cid, int begin, int limit) {
+		// sql语句
+		// select p.* from category c, categorysecond cs , product p where c.cid
+		// 							= cs.cid and cs.csid = p.csid and c.cid = 1;
+		// hql语句
+		// select p from Category c, CategorySecond cs , Product p where c.cid =
+		// 				cs.category.cid and cs.csid = p.categorysecond.csid and c.cid = ?
+		String hql = "select p from Product p join p.categorySecond cs join cs.category c where c.cid = ?";
+		// 分页另一种查询,定义一个类继承HibernateCallback
+		List<Product> list = this.getHibernateTemplate()
+				.execute(new PageHibernateCallback<Product>(hql, new Object[] { cid }, begin, limit));
+		if (list != null && list.size() > 0) {
+			return list;
+		}
+		return null;
 	}
 
 }

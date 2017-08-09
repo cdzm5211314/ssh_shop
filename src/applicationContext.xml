@@ -43,6 +43,7 @@
 				<value>cn/itcast/shop/user/entity/User.hbm.xml</value>
 				<value>cn/itcast/shop/category/entity/Category.hbm.xml</value>
 				<value>cn/itcast/shop/product/entity/Product.hbm.xml</value>
+				<value>cn/itcast/shop/categorysecond/entity/CategorySecond.hbm.xml</value>
 			</list>
 		</property>
 	</bean>

@@ -5,10 +5,12 @@ package cn.itcast.shop.product.service;
 
 import java.util.List;
 
+import org.apache.struts2.components.template.BaseTemplateEngine;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.shop.product.dao.ProductDao;
 import cn.itcast.shop.product.entity.Product;
+import cn.itcast.shop.utils.PageBean;
 
 /**
  * @ClassName: ProductService
@@ -55,7 +57,43 @@ public class ProductService {
 	public Product findById(Integer pid) {
 		return productDao.findById(pid);
 	}
+	/**
+	 * @方法的名称: findByPageCid
+	 * @Description: 根据一级分类的cid查询带分页效果的商品信息
+	 * @Author: chenD
+	 * @CreateDate: Aug 9, 2017 11:01:32 AM
+	 * @param cid
+	 * @param page
+	 * @return PageBean<Product>
+	 */
+	public PageBean<Product> findByPageCid(Integer cid, int page) {
+		
+		PageBean<Product> pageBean = new PageBean<Product>();
+		//设置当前页数
+		pageBean.setPage(page);
+		//设置每页记录数
+		int limit = 8;
+		pageBean.setLimit(limit);
+		//设置总的记录数
+		int totalCount = 0;
+//		数据库查询总的记录数
+		totalCount = productDao.findCountCid(cid);
+		pageBean.setTotalCount(totalCount);
+		//设置总的页数
+		int totalPage = 0;
+		if (totalCount % limit  == 0) {
+			totalPage = totalCount / limit;
+		}else {
+			totalPage = totalCount / limit + 1;
+		}
+		pageBean.setTotalPage(totalPage);
+		//设置每页显示的数据库集合
+		//从哪开始:
+		int begin =  (page - 1) * limit;
+		List<Product> list = productDao.fingByPageCid(cid,begin,limit);
+		pageBean.setList(list);
+		return pageBean;
+	}
 
-	
 	
 }

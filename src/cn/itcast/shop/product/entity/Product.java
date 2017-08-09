@@ -5,6 +5,8 @@ package cn.itcast.shop.product.entity;
 
 import java.util.Date;
 
+import cn.itcast.shop.categorysecond.entity.CategorySecond;
+
 /**
  * @ClassName: Product
  * @Description: 商品实体类 
@@ -21,9 +23,15 @@ public class Product {
 	private String pdesc;
 	private Integer is_hot;
 	private Date pdate;
-	//二级分类外键:二级分类对象
+	//二级分类外键:使用二级分类对象
+	private CategorySecond categorySecond;
 	
-	
+	public CategorySecond getCategorySecond() {
+		return categorySecond;
+	}
+	public void setCategorySecond(CategorySecond categorySecond) {
+		this.categorySecond = categorySecond;
+	}
 	public Integer getPid() {
 		return pid;
 	}
