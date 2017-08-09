@@ -94,6 +94,43 @@ public class ProductService {
 		pageBean.setList(list);
 		return pageBean;
 	}
+	/**
+	 * @方法的名称: findByCsid
+	 * @Description: 根据二级分类id查询所有商品
+	 * @Author: chenD
+	 * @CreateDate: Aug 9, 2017 3:14:03 PM
+	 * @param csid
+	 * @param page
+	 * @return PageBean<Product>
+	 */
+	public PageBean<Product> findByCsid(Integer csid, int page) {
+		PageBean<Product> pageBean = new PageBean<Product>();
+		//设置当前页数
+		pageBean.setPage(page);
+		//设置每页记录数
+		int limit = 8;
+		pageBean.setLimit(limit);
+		//设置总的记录数
+		int totalCount = 0;
+//		数据库查询总的记录数
+		totalCount = productDao.findCountCsid(csid);
+		pageBean.setTotalCount(totalCount);
+		//设置总的页数
+		int totalPage = 0;
+		if (totalCount % limit  == 0) {
+			totalPage = totalCount / limit;
+		}else {
+			totalPage = totalCount / limit + 1;
+		}
+		pageBean.setTotalPage(totalPage);
+		//设置每页显示的数据库集合
+		//从哪开始:
+		int begin =  (page - 1) * limit;
+		List<Product> list = productDao.fingByPageCsid(csid,begin,limit);
+		pageBean.setList(list);
+		return pageBean;
+		
+	}
 
 	
 }

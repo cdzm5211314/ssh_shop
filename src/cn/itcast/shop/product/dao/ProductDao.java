@@ -120,4 +120,41 @@ public class ProductDao extends HibernateDaoSupport {
 		return null;
 	}
 
+	/**
+	 * @方法的名称: findCountCsid
+	 * @Description: 根据二级分类id查询总记录数
+	 * @Author: chenD
+	 * @CreateDate: Aug 9, 2017 3:16:26 PM
+	 * @param csid
+	 * @return int
+	 */
+	public int findCountCsid(Integer csid) {
+		String hql = "select count(*) from Product p where p.categorySecond.csid = ? ";
+		List<Long> list = this.getHibernateTemplate().find(hql, csid);
+		// 把Long类型数据转换成int类型
+		if (list != null && list.size() > 0) {
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	/**
+	 * @方法的名称: fingByPageCsid
+	 * @Description: 根据二级分类id分页查询商品
+	 * @Author: chenD
+	 * @CreateDate: Aug 9, 2017 3:17:02 PM
+	 * @param csid
+	 * @param begin
+	 * @param limit
+	 * @return List<Product>
+	 */
+	public List<Product> fingByPageCsid(Integer csid, int begin, int limit) {
+		String  hql = "select p from Product p join p.categorySecond cs where cs.csid = ?";
+		List<Product> list = this.getHibernateTemplate().execute(new PageHibernateCallback<Product>(hql, new Object[]{csid}, begin, limit));
+		if (list != null && list.size() > 0) {
+			return list;
+		}
+		return null;
+	}
+
 }

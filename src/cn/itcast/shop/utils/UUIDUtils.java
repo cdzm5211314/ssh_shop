@@ -7,7 +7,7 @@ import java.util.UUID;
 
 /**
  * @ClassName: UUIDUtils
- * @Description: 工具类获取随机字符串 
+ * @Description: 验证码获取随机字符串 
  * @Author: ChenD
  * @CreateDate: Aug 7, 2017 9:08:50 AM
  */

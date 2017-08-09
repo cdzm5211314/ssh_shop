@@ -41,7 +41,7 @@
 						</dt>
 						<s:iterator value="#category.categorySeconds" var="categorySecond">
 							<dd>
-								<a><s:property value="#categorySecond.csname" /> </a>
+								<a href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="#categorySecond.csid"/>&page=1"><s:property value="#categorySecond.csname" /> </a>
 							</dd>
 						</s:iterator>
 					</dl>
@@ -71,23 +71,47 @@
 				</div>
 				<div class="pagination">
 					<span>第 <s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage" /> 页</span>
-					<s:if test="pageBean.page != 1">
-						<a class="firstPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=1" >&nbsp;</a>
-						<a class="previousPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page-1" />">&nbsp;</a>
-					</s:if>
-					<s:iterator begin="1" end="pageBean.totalPage" var="i">	
-						<s:if test="pageBean.page != #i">
-							<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i"/>"><s:property value="#i"/> </a> 
+					<s:if test="cid != null">
+						<s:if test="pageBean.page != 1">
+							<a class="firstPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=1" >&nbsp;</a>
+							<a class="previousPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page-1" />">&nbsp;</a>
 						</s:if>
-						<s:else>
-							<span class="currentPage"><s:property value="#i"/></span>
-						</s:else>
-						
-					</s:iterator>
-					<s:if test="pageBean.page != pageBean.totalPage">	
-						<a class="nextPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page+1" />" >&nbsp;</a> 
-						<a class="lastPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.totalPage" />" >&nbsp;</a>
+						<s:iterator begin="1" end="pageBean.totalPage" var="i">	
+							<s:if test="pageBean.page != #i">
+								<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i"/>"><s:property value="#i"/> </a> 
+							</s:if>
+							<s:else>
+								<span class="currentPage"><s:property value="#i"/></span>
+							</s:else>
+							
+						</s:iterator>
+						<s:if test="pageBean.page != pageBean.totalPage">	
+							<a class="nextPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page+1" />" >&nbsp;</a> 
+							<a class="lastPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.totalPage" />" >&nbsp;</a>
+						</s:if>
 					</s:if>
+					<s:if test="csid != null">
+						<s:if test="pageBean.page != 1">
+							<a class="firstPage" href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=1" >&nbsp;</a>
+							<a class="previousPage" href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page-1" />">&nbsp;</a>
+						</s:if>
+						<s:iterator begin="1" end="pageBean.totalPage" var="i">	
+							<s:if test="pageBean.page != #i">
+								<a href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="#i"/>"><s:property value="#i"/> </a> 
+							</s:if>
+							<s:else>
+								<span class="currentPage"><s:property value="#i"/></span>
+							</s:else>
+							
+						</s:iterator>
+						<s:if test="pageBean.page != pageBean.totalPage">	
+							<a class="nextPage" href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page+1" />" >&nbsp;</a> 
+							<a class="lastPage" href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.totalPage" />" >&nbsp;</a>
+						</s:if>
+					
+					</s:if>
+					
+					
 				</div>
 			</form>
 		</div>sss
