@@ -4,9 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
     <constant name="struts.devMode" value="false" />
-
 	<package name="shop" namespace="/" extends="struts-default">
 		<global-results>
 			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
@@ -48,6 +46,8 @@
 			<result name="addCartSUCCESS">/WEB-INF/jsp/cart.jsp</result>
 			<!-- 清空购物车 -->
 			<result name="clearCartSUCCESS">/WEB-INF/jsp/cart.jsp</result>
+			<!-- 移除删除购物项 -->
+			<result name="removeCartSUCCESS">/WEB-INF/jsp/cart.jsp</result>
 			
 		</action>
 		

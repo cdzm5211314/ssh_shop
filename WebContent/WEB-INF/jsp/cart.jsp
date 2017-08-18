@@ -47,7 +47,6 @@
 					<s:iterator value="#session.cart.cartItems" var="cartItem">
 						<tr>
 							<td width="60">
-								<input type="hidden" name="id" value="22" />
 								<img src="${pageContext.request.contextPath}/<s:property value="#cartItem.product.image" />" />
 							</td>
 							<td>
@@ -63,7 +62,7 @@
 								<span class="subtotal"><s:property value="#cartItem.subtotal" /></span>
 							</td>
 							<td>
-								<a href="javascript:;" class="delete">删除</a>
+								<a href="${pageContext.request.contextPath}/cart_removeCart.action?pid=<s:property value="#cartItem.product.pid"/>" class="delete">删除</a>
 							</td>
 						</tr>
 						</s:iterator>

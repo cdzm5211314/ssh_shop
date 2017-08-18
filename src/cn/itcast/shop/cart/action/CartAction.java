@@ -39,11 +39,17 @@ public class CartAction extends ActionSupport {
 	}
 	
 	/*
+	 * 删除购物项(即商品)
+	 */
+	public String removeCart(){
+		Cart cart = getCart();
+		cart.removeCart(pid);
+		return "removeCartSUCCESS";
+	}
+	/*
 	 * 清空购物车
 	 */
 	public String clearCart(){
-		
-		//Cart cart = (Cart) ServletActionContext.getRequest().getSession().getAttribute("cart");
 		Cart cart = getCart();
 		cart.clearCart();
 		return "clearCartSUCCESS";

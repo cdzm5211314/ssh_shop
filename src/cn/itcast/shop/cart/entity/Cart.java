@@ -3,6 +3,7 @@
  */
 package cn.itcast.shop.cart.entity;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -13,7 +14,7 @@ import java.util.Map;
  * @Author: ChenD
  * @CreateDate: Aug 9, 2017 3:53:10 PM
  */
-public class Cart {
+public class Cart implements Serializable {
 
 	// 购物项集合:key是商品的pid,value是购物项,有序集合
 	private Map<Integer, CartItem> map = new LinkedHashMap<>();

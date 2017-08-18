@@ -3,6 +3,7 @@
  */
 package cn.itcast.shop.category.entity;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,7 +16,7 @@ import cn.itcast.shop.categorysecond.entity.CategorySecond;
  * @Author: ChenD
  * @CreateDate: Aug 7, 2017 3:04:57 PM
  */
-public class Category {
+public class Category implements Serializable{
 	
 	private Integer cid;
 	private String cname;
