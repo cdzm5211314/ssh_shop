@@ -32,7 +32,7 @@
 		<s:if test="#session.cart.cartItems.size() != 0">
 		<div class="span24">
 			<div class="step step1">
-				购物车信息
+				<h2><font color="blue">购物车信息</font></h2>
 			</div>
 				<table>
 					<tbody><tr>
@@ -86,7 +86,7 @@
 		<s:else>
 		<div class="span24">
 			<div class="step step1">
-				<span><h2>亲!你还没有购物呢...</h2></span>
+				<span><h2><font color="red">亲!你还没有购物呢...</font></h2></span>
 			</div>
 		</div>
 		</s:else>

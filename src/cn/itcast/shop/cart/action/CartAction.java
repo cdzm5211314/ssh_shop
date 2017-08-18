@@ -39,6 +39,13 @@ public class CartAction extends ActionSupport {
 	}
 	
 	/*
+	 * 跳转到我的购物车页面
+	 */
+	public  String  myCart(){
+		return "myCartSUCCESS";
+	}
+	
+	/*
 	 * 删除购物项(即商品)
 	 */
 	public String removeCart(){

@@ -48,6 +48,8 @@
 			<result name="clearCartSUCCESS">/WEB-INF/jsp/cart.jsp</result>
 			<!-- 移除删除购物项 -->
 			<result name="removeCartSUCCESS">/WEB-INF/jsp/cart.jsp</result>
+			<!-- 首页点击购物车跳转到购物车页面 -->
+			<result name="myCartSUCCESS">/WEB-INF/jsp/cart.jsp</result>
 			
 		</action>
 		
