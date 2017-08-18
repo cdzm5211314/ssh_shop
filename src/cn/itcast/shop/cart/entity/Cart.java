@@ -17,13 +17,15 @@ public class Cart {
 
 	// 购物项集合:key是商品的pid,value是购物项,有序集合
 	private Map<Integer, CartItem> map = new LinkedHashMap<>();
+	
+	//Cart对象中存在一个叫cartItems的属性
 	public  Collection<CartItem> getCartItems(){
 		return map.values();
 	}
 	
 	private double total; // 购物总计
-	public void setTotal(double total) {
-		this.total = total;
+	public double getTotal() {
+		return total;
 	}
 
 	// 购物车功能:
