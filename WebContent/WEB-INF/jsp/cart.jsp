@@ -29,6 +29,7 @@
 <%@ include file="menu.jsp" %>
 
 </div>	<div class="container cart">
+		<s:if test="#session.cart.cartItems.size() != 0">
 		<div class="span24">
 			<div class="step step1">
 				购物车信息
@@ -78,10 +79,18 @@
 					商品金额: <strong id="effectivePrice">￥<s:property value="#session.cart.total" />元</strong>
 				</div>
 				<div class="bottom">
-					<a href="javascript:;" id="clear" class="clear">清空购物车</a>
+					<a href="${pageContext.request.contextPath}/cart_clearCart.action" id="clear" class="clear">清空购物车</a>
 					<a href="./会员登录.htm" id="submit" class="submit">提交订单</a>
 				</div>
 		</div>
+		</s:if>
+		<s:else>
+		<div class="span24">
+			<div class="step step1">
+				<span><h2>亲!你还没有购物呢...</h2></span>
+			</div>
+		</div>
+		</s:else>
 	</div>
 <div class="container footer">
 	<div class="span24">

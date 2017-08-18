@@ -37,6 +37,17 @@ public class CartAction extends ActionSupport {
 	public void setCount(Integer count) {
 		this.count = count;
 	}
+	
+	/*
+	 * 清空购物车
+	 */
+	public String clearCart(){
+		
+		//Cart cart = (Cart) ServletActionContext.getRequest().getSession().getAttribute("cart");
+		Cart cart = getCart();
+		cart.clearCart();
+		return "clearCartSUCCESS";
+	}
 
 	/*
 	 * 购物项添加到购物车中

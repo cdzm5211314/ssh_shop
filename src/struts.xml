@@ -46,6 +46,8 @@
 		<action name="cart_*" class="cartAction" method="{1}">
 			<!-- 添加购物项到购物车 -->
 			<result name="addCartSUCCESS">/WEB-INF/jsp/cart.jsp</result>
+			<!-- 清空购物车 -->
+			<result name="clearCartSUCCESS">/WEB-INF/jsp/cart.jsp</result>
 			
 		</action>
 		
