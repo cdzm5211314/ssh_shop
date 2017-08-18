@@ -77,7 +77,10 @@
 		scope="prototype">
 		<property name="productService" ref="productService"></property>
 	</bean>
+	<!-- 购物车的action -->
+	<bean id="cartAction" class="cn.itcast.shop.cart.action.CartAction" scope="prototype">
 
+	</bean>
 
 	<!-- Service的配置 =========================== -->
 	<bean id="userService" class="cn.itcast.shop.user.service.UserService">
