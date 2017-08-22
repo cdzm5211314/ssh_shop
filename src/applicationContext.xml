@@ -44,6 +44,8 @@
 				<value>cn/itcast/shop/category/entity/Category.hbm.xml</value>
 				<value>cn/itcast/shop/product/entity/Product.hbm.xml</value>
 				<value>cn/itcast/shop/categorysecond/entity/CategorySecond.hbm.xml</value>
+				<value>cn/itcast/shop/order/entity/Order.hbm.xml</value>
+				<value>cn/itcast/shop/order/entity/OrderItem.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -81,6 +83,10 @@
 	<bean id="cartAction" class="cn.itcast.shop.cart.action.CartAction" scope="prototype">
 		<property name="productService" ref="productService"></property>
 	</bean>
+	<!-- 订单模块的action -->
+	<bean id="orderAction" class="cn.itcast.shop.order.action.OrderAction" scope="prototype">
+		<property name="orderService" ref="orderService"></property>
+	</bean>
 
 
 	<!-- Service的配置 =========================== -->
@@ -92,6 +98,9 @@
 	</bean>
 	<bean id="productService" class="cn.itcast.shop.product.service.ProductService">
 		<property name="productDao" ref="productDao"></property>
+	</bean>
+	<bean id="orderService" class="cn.itcast.shop.order.service.OrderService">
+		<property name="orderDao" ref="orderDao"></property>	
 	</bean>
 
 
@@ -105,6 +114,8 @@
 	<bean id="productDao" class="cn.itcast.shop.product.dao.ProductDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
+	<bean id="orderDao" class="cn.itcast.shop.order.dao.OrderDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 </beans>

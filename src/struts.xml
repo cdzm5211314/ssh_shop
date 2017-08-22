@@ -53,6 +53,13 @@
 			
 		</action>
 		
+		<!-- 订单模块 -->
+		<action name="order_*" class="orderAction" method="{1}">
+			
+			
+		
+		</action>
+		
 		<!-- 验证码的action -->
 		<action name="checkImg" class="checkImgAction"></action>
 	</package>
