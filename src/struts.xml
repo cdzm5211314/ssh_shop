@@ -55,8 +55,9 @@
 		
 		<!-- 订单模块 -->
 		<action name="order_*" class="orderAction" method="{1}">
-			
-			
+			<!-- 跳转到订单页面 -->
+			<result name="saveSUCCESS">/WEB-INF/jsp/order.jsp</result>
+		
 		
 		</action>
 		

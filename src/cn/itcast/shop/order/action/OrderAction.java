@@ -6,7 +6,7 @@ package cn.itcast.shop.order.action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-import cn.itcast.shop.order.enity.Order;
+import cn.itcast.shop.order.entity.Order;
 import cn.itcast.shop.order.service.OrderService;
 
 /**
@@ -27,8 +27,13 @@ public class OrderAction extends ActionSupport implements ModelDriven<Order>{
 		this.orderService = orderService;
 	}
 	
-
-	
+	/*
+	 * 购物车页面点击"提交订单"按钮跳转到到订单页面
+	 */
+	public  String save(){
+		
+		return "saveSUCCESS";
+	}
 	
 	
 }

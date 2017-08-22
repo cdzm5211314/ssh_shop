@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cn.itcast.shop.order.enity;
+package cn.itcast.shop.order.entity;
 
 import cn.itcast.shop.product.entity.Product;
 

@@ -12,6 +12,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  * @CreateDate: Aug 22, 2017 1:46:54 PM
  */
 public class OrderDao extends HibernateDaoSupport {
-
+	
+	
 	
 }
