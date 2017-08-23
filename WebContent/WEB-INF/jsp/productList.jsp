@@ -114,7 +114,7 @@
 					
 				</div>
 			</form>
-		</div>sss
+		</div>
 	</div>
 	<div class="container footer">
 		<div class="span24">

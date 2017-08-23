@@ -3,6 +3,7 @@
  */
 package cn.itcast.shop.order.action;
 
+import java.io.IOException;
 import java.util.Date;
 
 import org.apache.struts2.ServletActionContext;
@@ -21,6 +22,7 @@ import cn.itcast.shop.user.entity.User;
 import cn.itcast.shop.user.service.UserService;
 import cn.itcast.shop.utils.PageBean;
 import cn.itcast.shop.utils.PageHibernateCallback;
+import cn.itcast.shop.utils.PaymentUtil;
 
 /**
  * @ClassName: OrderAction
@@ -44,8 +46,63 @@ public class OrderAction extends ActionSupport implements ModelDriven<Order>{
 	public void setPage(Integer page) {
 		this.page = page;
 	}
-
-
+	//支付银行通道编号
+	private String pd_Frpid;
+	public void setPd_Frpid(String pd_Frpid) {
+		this.pd_Frpid = pd_Frpid;
+	}
+	/*
+	 * 为订单付款的
+	 */
+	public String payOrder() throws IOException{
+		// 1.先修改订单,保存用户名,电话和地址信息到数据库
+		Order currOrder = orderService.findByOid(order.getOid());
+		currOrder.setAddr(order.getAddr());
+		currOrder.setName(order.getName());
+		currOrder.setPhone(order.getPhone());
+		orderService.update(currOrder);
+		// 2. 为订单付款
+		String  p0_Cmd = "Buy"; //业务类型
+		String  p1_MerId = "10001126856"; //商户编号
+		String  p2_Order = order.getOid().toString(); //商户订单号
+		String  p3_Amt = "0.01"; //付款金额
+		String p4_Cur = "CNY"; //交易币种
+		String  p5_Pid = ""; //商品名称 
+		String p6_Pcat = ""; //商品种类 
+		String  p7_Pdesc = ""; //商品描述
+		String p8_Url = "http://localhost:7000/ssh_shop/order_callBack.action"; //支付成功后跳转的路径
+		String   p9_SAF = "" ;//送货地址
+		String  pa_MP = ""; //商户扩展信息
+		String  pd_FrpId = this.pd_Frpid; //支付通道编码
+		String pr_NeedResponse = "1"; //应答机制
+		String keyValue = "69cl522AV6q613Ii4W6u8K6XuW8vM1N6bFgyv769220IuYe9u37N4y7rI4Pl";//密钥
+		String  hmac = PaymentUtil.buildHmac(p0_Cmd, p1_MerId, p2_Order, p3_Amt, p4_Cur, p5_Pid, p6_Pcat, p7_Pdesc, p8_Url, p9_SAF, pa_MP, pd_FrpId, pr_NeedResponse, keyValue);
+		// 向易宝支付
+		StringBuffer stringBuffer = new StringBuffer("https://www.yeepay.com/app-merchant-proxy/node?");
+		stringBuffer.append("p0_Cmd=").append(p0_Cmd).append("&");
+		stringBuffer.append("p1_MerId=").append(p1_MerId).append("&");
+		stringBuffer.append("p2_Order=").append(p2_Order).append("&");
+		stringBuffer.append("p3_Amt=").append(p3_Amt).append("&");
+		stringBuffer.append("p4_Cur=").append(p4_Cur).append("&");
+		stringBuffer.append("p5_Pid=").append(p5_Pid).append("&");
+		stringBuffer.append("p6_Pcat=").append(p6_Pcat).append("&");
+		stringBuffer.append("p7_Pdesc=").append(p7_Pdesc).append("&");
+		stringBuffer.append("p8_Url=").append(p8_Url).append("&");
+		stringBuffer.append("p9_SAF=").append(p9_SAF).append("&");
+		stringBuffer.append("pa_MP=").append(pa_MP).append("&");
+		stringBuffer.append("pd_FrpId=").append(pd_FrpId).append("&");
+		stringBuffer.append("pr_NeedResponse=").append(pr_NeedResponse).append("&");
+		stringBuffer.append("hmac=").append(hmac);
+		//重定向到易宝
+		ServletActionContext.getResponse().sendRedirect(stringBuffer.toString());
+		
+		return NONE;
+	}
+	
+	/*
+	 *
+	 */
+	
 	/*
 	 * 我的订单的查询
 	 */

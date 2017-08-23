@@ -95,9 +95,8 @@
 					<td colspan="5">
 					<div class="pagination">
 					<span>第 <s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage" /> 页</span>
-					<s:if test="oid != null">
 						<s:if test="pageBean.page != 1">
-							<a class="firstPage" href="${pageContext.request.contextPath}/order_findByUid.action?page=1" >&nbsp;</a>
+							<a class="firstPage" href="${pageContext.request.contextPath}/order_findByUid.action?page=1">&nbsp;</a>
 							<a class="previousPage" href="${pageContext.request.contextPath}/order_findByUid.action?page=<s:property value="pageBean.page-1" />">&nbsp;</a>
 						</s:if>
 						<s:iterator begin="1" end="pageBean.totalPage" var="i">	
@@ -113,7 +112,6 @@
 							<a class="nextPage" href="${pageContext.request.contextPath}/order_findByUid.action?page=<s:property value="pageBean.page+1" />" >&nbsp;</a> 
 							<a class="lastPage" href="${pageContext.request.contextPath}/order_findByUid.action?page=<s:property value="pageBean.totalPage" />" >&nbsp;</a>
 						</s:if>
-					</s:if>
 					
 				</div>	
 						

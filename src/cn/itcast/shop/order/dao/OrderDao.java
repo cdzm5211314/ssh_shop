@@ -73,6 +73,17 @@ public class OrderDao extends HibernateDaoSupport {
 	public Order finyByOid(Integer oid) {
 		return this.getHibernateTemplate().get(Order.class, oid);
 	}
+
+	/**
+	 * @方法的名称: update
+	 * @Description: 修改数据库的订单信息
+	 * @Author: chenD
+	 * @CreateDate: Aug 23, 2017 3:16:22 PM
+	 * @param currOrder void
+	 */
+	public void update(Order currOrder) {
+		this.getHibernateTemplate().update(currOrder);
+	}
 	
 	
 	

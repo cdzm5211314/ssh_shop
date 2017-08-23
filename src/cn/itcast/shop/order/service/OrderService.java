@@ -82,6 +82,16 @@ public class OrderService {
 	public Order findByOid(Integer oid) {
 		return orderDao.finyByOid(oid);
 	}
+	/**
+	 * @方法的名称: update
+	 * @Description: 修改订单的信息
+	 * @Author: chenD
+	 * @CreateDate: Aug 23, 2017 3:15:44 PM
+	 * @param currOrder void
+	 */
+	public void update(Order currOrder) {
+		orderDao.update(currOrder);
+	}
 	
 	
 }
