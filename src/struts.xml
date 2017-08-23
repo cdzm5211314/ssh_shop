@@ -60,7 +60,8 @@
 			<result name="saveSUCCESS">/WEB-INF/jsp/order.jsp</result>
 			<!-- 我的订单查询 -->
 			<result name="findByUidSUCCESS">/WEB-INF/jsp/orderList.jsp</result>
-		
+			<!-- 根据订单id查询订单 -->
+			<result name="findByOidSUCCESS">/WEB-INF/jsp/order.jsp</result>
 		</action>
 		
 		<!-- 验证码的action -->

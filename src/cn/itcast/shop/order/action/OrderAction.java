@@ -51,17 +51,18 @@ public class OrderAction extends ActionSupport implements ModelDriven<Order>{
 	 */
 	public String findByUid(){
 		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
-//		if (user == null) {
-//			
-//			return "login"; 
-//		}
 		PageBean<Order> pageBean = orderService.findByPageUid(user.getUid(),page);
 		//将分页数据显示到页面上,通过值栈显示
 		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
-		
 		return "findByUidSUCCESS";
 	}
-	
+	/*
+	 * 根据订单id查询订单
+	 */
+	public String findByOid(){
+		order = orderService.findByOid(order.getOid());
+		return "findByOidSUCCESS";
+	}
 	
 	/*
 	 * 购物车页面点击"提交订单"按钮跳转到到订单页面

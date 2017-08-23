@@ -71,6 +71,17 @@ public class OrderService {
 		pageBean.setList(list);
 		return pageBean;
 	}
+	/**
+	 * @方法的名称: findByOid
+	 * @Description: 根基订单id查询订单
+	 * @Author: chenD
+	 * @CreateDate: Aug 23, 2017 2:39:20 PM
+	 * @param oid
+	 * @return Order
+	 */
+	public Order findByOid(Integer oid) {
+		return orderDao.finyByOid(oid);
+	}
 	
 	
 }

@@ -61,6 +61,18 @@ public class OrderDao extends HibernateDaoSupport {
 		List<Order> list =this.getHibernateTemplate().execute(new PageHibernateCallback<Order>(hql, new Object[]{uid},begin,limit));
 		return list;
 	}
+
+	/**
+	 * @方法的名称: finyByOid
+	 * @Description: 根据订单id查询订单
+	 * @Author: chenD
+	 * @CreateDate: Aug 23, 2017 2:39:49 PM
+	 * @param oid
+	 * @return Order
+	 */
+	public Order finyByOid(Integer oid) {
+		return this.getHibernateTemplate().get(Order.class, oid);
+	}
 	
 	
 	

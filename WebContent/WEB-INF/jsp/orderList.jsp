@@ -52,7 +52,7 @@
 						<th colspan="5">订单编号:	<s:property value="#order.oid" />&nbsp;&nbsp;&nbsp;
 							订单状态:
 							<s:if test="#order.state == 1">
-								<a href="#"><font color="red">付款</font></a>
+								<a href="${pageContext.request.contextPath}/order_findByOid.action?oid=<s:property value="#order.oid" />"><font color="red">付款</font></a>
 							</s:if><s:if test="#order.state == 2">
 								已经付款
 							</s:if><s:if test="#order.state == 3">
