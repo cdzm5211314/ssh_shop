@@ -58,7 +58,8 @@
 		<action name="order_*" class="orderAction" method="{1}">
 			<!-- 跳转到订单页面 -->
 			<result name="saveSUCCESS">/WEB-INF/jsp/order.jsp</result>
-		
+			<!-- 我的订单查询 -->
+			<result name="findByUidSUCCESS">/WEB-INF/jsp/orderList.jsp</result>
 		
 		</action>
 		

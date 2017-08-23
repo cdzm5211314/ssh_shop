@@ -12,7 +12,7 @@
 		<!-- 关联关系 :订单项与订单是多对一关系-->
 		<many-to-one name="order" class="cn.itcast.shop.order.entity.Order" column="oid"></many-to-one>
 		<!-- 关联关系:订单项与商品 -->
-		<many-to-one name="product" class="cn.itcast.shop.product.entity.Product" column="pid"></many-to-one>
+		<many-to-one name="product" lazy="false" class="cn.itcast.shop.product.entity.Product" column="pid"></many-to-one>
 	</class>
 	
 </hibernate-mapping>

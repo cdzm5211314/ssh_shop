@@ -14,9 +14,9 @@
 		<property name="addr"/>
 		<property name="phone"/>
 		<!-- 关联关系:用户与订单是一对多关系 -->
-		<many-to-one name="user" class="cn.itcast.shop.user.entity.User" column="uid"></many-to-one>
+		<many-to-one name="user" lazy="false" class="cn.itcast.shop.user.entity.User" column="uid"></many-to-one>
 		<!-- 关联关系:订单与订单项是是一对多关系 -->
-		<set name="orderItems" cascade="save-update">
+		<set name="orderItems" lazy="false" cascade="save-update">
 			<key column="uid"></key>
 			<one-to-many class="cn.itcast.shop.order.entity.OrderItem"/>
 		</set>

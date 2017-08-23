@@ -6,7 +6,9 @@ package cn.itcast.shop.order.action;
 import java.util.Date;
 
 import org.apache.struts2.ServletActionContext;
+import org.aspectj.weaver.AjAttribute.PrivilegedAttribute;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -17,6 +19,8 @@ import cn.itcast.shop.order.entity.OrderItem;
 import cn.itcast.shop.order.service.OrderService;
 import cn.itcast.shop.user.entity.User;
 import cn.itcast.shop.user.service.UserService;
+import cn.itcast.shop.utils.PageBean;
+import cn.itcast.shop.utils.PageHibernateCallback;
 
 /**
  * @ClassName: OrderAction
@@ -35,6 +39,29 @@ public class OrderAction extends ActionSupport implements ModelDriven<Order>{
 	public void setOrderService(OrderService orderService) {
 		this.orderService = orderService;
 	}
+	
+	private Integer page;
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
+
+	/*
+	 * 我的订单的查询
+	 */
+	public String findByUid(){
+		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
+//		if (user == null) {
+//			
+//			return "login"; 
+//		}
+		PageBean<Order> pageBean = orderService.findByPageUid(user.getUid(),page);
+		//将分页数据显示到页面上,通过值栈显示
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		
+		return "findByUidSUCCESS";
+	}
+	
 	
 	/*
 	 * 购物车页面点击"提交订单"按钮跳转到到订单页面
@@ -70,6 +97,9 @@ public class OrderAction extends ActionSupport implements ModelDriven<Order>{
 		orderService.saveOrder(order);
 		// 2.将订单数据显示到页面
 		//通过值栈方式显示到到订单页面,应为模型驱动Order的对象本身就在值栈的栈顶,所以可以在页面直接操作
+		
+		//3. 清空购物车
+		cart.clearCart();
 		return "saveSUCCESS";
 	}
 	
