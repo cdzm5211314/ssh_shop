@@ -4,6 +4,7 @@
 package cn.itcast.shop.adminuser.service;
 
 import cn.itcast.shop.adminuser.dao.AdminUserDao;
+import cn.itcast.shop.adminuser.entity.AdminUser;
 
 /**
  * @ClassName: AdminUserService
@@ -17,6 +18,17 @@ public class AdminUserService {
 	private AdminUserDao adminUserDao;
 	public void setAdminUserDao(AdminUserDao adminUserDao) {
 		this.adminUserDao = adminUserDao;
+	}
+	/**
+	 * @方法的名称: login
+	 * @Description: 管理员登录操作
+	 * @Author: chenD
+	 * @CreateDate: Aug 31, 2017 2:29:28 PM
+	 * @param adminUser
+	 * @return AdminUser
+	 */
+	public AdminUser login(AdminUser adminUser) {
+		return adminUserDao.findByAdminUserAndPassword(adminUser);
 	}
 	
 	

@@ -15,12 +15,15 @@ body {
 </style>
 
 <body style="background: #278296">
-	<s:actionerror />
+	
 	<form method="post" action="${pageContext.request.contextPath }/adminUser_login.action" target="_parent" name='theForm' onsubmit="return validate()">
 		<table cellspacing="0" cellpadding="0" style="margin-top: 100px" align="center">
 			<tr>
 				<td style="padding-left: 50px">
 					<table>
+						<tr>
+							<h2><font color="red"><s:actionerror /></font></h2>
+						</tr>
 						<tr>
 							<td>管理员姓名：</td>
 							<td><input type="text" name="username" /></td>

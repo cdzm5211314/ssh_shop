@@ -69,8 +69,11 @@
 		
 		<!-- 后台管理员模块 -->
 		<action name="adminUser_*" class="adminUserAction" method="{1}">
+			<!-- 登录结果 -->
+			<result name="loginFail">/admin/index.jsp</result>
+			<result name="loginSUCCESS">/admin/home.jsp</result>
 			
-		
+			
 		</action>
 		
 	</package>

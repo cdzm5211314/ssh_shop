@@ -3,6 +3,8 @@
  */
 package cn.itcast.shop.adminuser.action;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -28,7 +30,19 @@ public class AdminUserAction extends ActionSupport implements ModelDriven<AdminU
 		this.adminUserService = adminUserService;
 	}
 	
-
+	//管理员登录操作
+	public String login(){
+		//调用业务层登录
+		AdminUser loginAdminUser = adminUserService.login(adminUser);
+		if (loginAdminUser == null) {
+			//登录失败
+			this.addActionError("用户名称或密码错误...");
+			return "loginFail";
+		}
+		//登录成功
+		ServletActionContext.getRequest().getSession().setAttribute("adminUser", loginAdminUser);
+		return "loginSUCCESS";
+	}
 	
 	
 	
