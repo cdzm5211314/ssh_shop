@@ -66,6 +66,13 @@
 		
 		<!-- 验证码的action -->
 		<action name="checkImg" class="checkImgAction"></action>
+		
+		<!-- 后台管理员模块 -->
+		<action name="adminUser_*" class="adminUserAction" method="{1}">
+			
+		
+		</action>
+		
 	</package>
 	
 	
