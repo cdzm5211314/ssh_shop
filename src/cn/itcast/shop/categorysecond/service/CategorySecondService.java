@@ -58,6 +58,16 @@ public class CategorySecondService {
 		
 		return pageBean;
 	}
+	/**
+	 * @方法的名称: save
+	 * @Description: 添加二级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 3:56:13 PM
+	 * @param categorySecond void
+	 */
+	public void save(CategorySecond categorySecond) {
+		categorySecondDao.save(categorySecond);
+	}
 	
 	
 	

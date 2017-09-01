@@ -93,7 +93,11 @@
 		<action name="adminCategorySecond_*" class="adminCategorySecondAction" method="{1}">
 			<!-- 后台查询所有二级分类 -->
 			<result name="findAllSUCCESS">/admin/categorysecond/list.jsp</result>
-		
+			<!--跳转到添加二级分类页面-->
+			<result name="addPageSUCCESS">/admin/categorysecond/add.jsp</result>
+			<!--添加二级分类 -->
+			<result name="saveSUCCESS" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
+			
 		</action>
 		
 	</package>

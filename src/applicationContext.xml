@@ -99,6 +99,7 @@
 	<!-- 后台二级分类的actin -->
 	<bean id="adminCategorySecondAction" class="cn.itcast.shop.categorysecond.adminaction.AdminCategorySecondAction" scope="prototype">
 		<property name="categorySecondService" ref="categorySecondService"></property>
+		<property name="categoryService" ref="categoryService"></property>
 	</bean>
 	
 

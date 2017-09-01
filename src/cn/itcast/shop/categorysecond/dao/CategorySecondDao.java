@@ -52,6 +52,17 @@ public class CategorySecondDao extends HibernateDaoSupport {
 		System.err.println(list);
 		return list;
 	}
+
+	/**
+	 * @方法的名称: save
+	 * @Description: 添加二级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 3:56:46 PM
+	 * @param categorySecond void
+	 */
+	public void save(CategorySecond categorySecond) {
+		this.getHibernateTemplate().save(categorySecond);
+	}
 	
 	
 }
