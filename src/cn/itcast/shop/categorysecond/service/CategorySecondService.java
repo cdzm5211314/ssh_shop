@@ -89,6 +89,16 @@ public class CategorySecondService {
 	public CategorySecond findByCsid(Integer csid) {
 		return categorySecondDao.findByCsid(csid);
 	}
+	/**
+	 * @方法的名称: update
+	 * @Description: 修改二级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 4:52:28 PM
+	 * @param categorySecond void
+	 */
+	public void update(CategorySecond categorySecond) {
+		categorySecondDao.update(categorySecond);
+	}
 	
 	
 	

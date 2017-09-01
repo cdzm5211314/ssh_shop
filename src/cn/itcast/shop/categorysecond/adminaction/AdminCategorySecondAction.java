@@ -75,6 +75,19 @@ public class AdminCategorySecondAction extends ActionSupport implements ModelDri
 		
 		return "deleteSUCCESS";
 	}
-	
+	//跳转页面修改二级分类信息
+	public String edit(){
+		//先根据id查询二级分类并显示到页面
+		categorySecond = categorySecondService.findByCsid(categorySecond.getCsid());
+		//查询所有的一级分类
+		List<Category> cList = categoryService.findAll();
+		ActionContext.getContext().getValueStack().set("cList", cList);
+		return "editSUCCESS";
+	}
+	//修改二级分类
+	public String update(){
+		categorySecondService.update(categorySecond);
+		return "updateSUCCESS";
+	}
 	
 }

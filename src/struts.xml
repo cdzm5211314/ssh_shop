@@ -99,7 +99,10 @@
 			<result name="saveSUCCESS" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
 			<!-- 删除二级分类 -->
 			<result name="deleteSUCCESS" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
-			
+			<!-- 跳转到修改二级分类页面 -->
+			<result name="editSUCCESS">/admin/categorysecond/edit.jsp</result>
+			<!-- 修改二级分类 -->
+			<result name="updateSUCCESS" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
 		</action>
 		
 	</package>

@@ -86,6 +86,17 @@ public class CategorySecondDao extends HibernateDaoSupport {
 	public CategorySecond findByCsid(Integer csid) {
 		return this.getHibernateTemplate().get(CategorySecond.class, csid);
 	}
+
+	/**
+	 * @方法的名称: update
+	 * @Description: 修改二级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 4:52:55 PM
+	 * @param categorySecond void
+	 */
+	public void update(CategorySecond categorySecond) {
+		this.getHibernateTemplate().update(categorySecond);
+	}
 	
 	
 }
