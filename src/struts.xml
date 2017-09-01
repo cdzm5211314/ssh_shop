@@ -97,6 +97,8 @@
 			<result name="addPageSUCCESS">/admin/categorysecond/add.jsp</result>
 			<!--添加二级分类 -->
 			<result name="saveSUCCESS" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
+			<!-- 删除二级分类 -->
+			<result name="deleteSUCCESS" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
 			
 		</action>
 		

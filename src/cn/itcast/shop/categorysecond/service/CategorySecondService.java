@@ -68,6 +68,27 @@ public class CategorySecondService {
 	public void save(CategorySecond categorySecond) {
 		categorySecondDao.save(categorySecond);
 	}
+	/**
+	 * @方法的名称: delete
+	 * @Description: 删除二级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 4:12:00 PM
+	 * @param categorySecond void
+	 */
+	public void delete(CategorySecond categorySecond) {
+		categorySecondDao.delete(categorySecond);
+	}
+	/**
+	 * @方法的名称: findByCsid
+	 * @Description: 根据csid查询二级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 4:15:11 PM
+	 * @param csid
+	 * @return CategorySecond
+	 */
+	public CategorySecond findByCsid(Integer csid) {
+		return categorySecondDao.findByCsid(csid);
+	}
 	
 	
 	
