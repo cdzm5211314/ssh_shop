@@ -31,6 +31,17 @@ public class CategoryDao extends HibernateDaoSupport {
 		}
 		return null;
 	}
+
+	/**
+	 * @方法的名称: save
+	 * @Description: 后台保存一级分类数据
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 10:56:13 AM
+	 * @param category void
+	 */
+	public void save(Category category) {
+		this.getHibernateTemplate().save(category);
+	}
 	
 	
 	

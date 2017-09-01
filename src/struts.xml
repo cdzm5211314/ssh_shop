@@ -80,6 +80,8 @@
 		<action name="adminCategory_*" class="adminCategoryAction" method="{1}">
 			<!-- 查询所有一级分类 -->
 			<result name="findAllSUCCESS">/admin/category/list.jsp</result>
+			<!-- 保存一级分类 -->
+			<result name="saveSUCCESS" type="redirectAction">adminCategory_findAll.action</result>
 			
 		</action>
 		

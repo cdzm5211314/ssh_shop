@@ -39,6 +39,11 @@ public class AdminCategoryAction extends ActionSupport implements ModelDriven<Ca
 		return "findAllSUCCESS";
 	}
 	
+	//后台保存添加的一级分类
+	public String save(){
+		categoryService.save(category);
+		return "saveSUCCESS";
+	}
 	
 	
 }

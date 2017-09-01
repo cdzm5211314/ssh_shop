@@ -34,6 +34,16 @@ public class CategoryService {
 	public List<Category> findAll() {
 		return categoryDao.findAll();
 	}
+	/**
+	 * @方法的名称: save
+	 * @Description: 后台保存一级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 10:55:32 AM
+	 * @param category void
+	 */
+	public void save(Category category) {
+		categoryDao.save(category);
+	}
 	
 	
 	
