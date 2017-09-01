@@ -15,8 +15,7 @@
 				<tr>
 					<td class="ta_01" align="center" bgColor="#afd1f3" colSpan="4"
 						height="26">
-						<strong><STRONG>编辑一级分类</STRONG>
-						</strong>
+						<STRONG>编辑一级分类</STRONG>
 					</td>
 				</tr>
 
@@ -26,7 +25,6 @@
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
 						<input type="text" name="cname" value="<s:property value="model.cname"/>" id="userAction_save_do_logonName" class="bg"/>
-						<%--<s:textfield name="cname" value="%{model.cname}"/>--%>
 						</td>
 				</tr>
 			

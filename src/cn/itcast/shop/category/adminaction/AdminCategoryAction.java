@@ -8,6 +8,7 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.sun.xml.internal.ws.developer.StreamingAttachment;
 
 import cn.itcast.shop.category.entity.Category;
 import cn.itcast.shop.category.service.CategoryService;
@@ -50,8 +51,22 @@ public class AdminCategoryAction extends ActionSupport implements ModelDriven<Ca
 		//先查询后删除
 		category = categoryService.findByCid(category.getCid());
 		categoryService.delete(category);
-		
 		return "deleteSUCCESS";
 	}
+	//跳转到一级分类修改页面
+	public String edit(){
+		//先根据cid查询一级分类,把查询到的数据显示到页面上
+		category = categoryService.findByCid(category.getCid());
+		//页面跳转
+		return "editSUCCESS";
+	}
+	//修改一级分类
+	public String update(){
+		//根据页面数据修改数据
+		categoryService.update(category);		
+		return "updateSUCCESS";
+	}
+	
+	
 	
 }

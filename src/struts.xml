@@ -71,7 +71,7 @@
 		<action name="adminUser_*" class="adminUserAction" method="{1}">
 			<!-- 登录结果 -->
 			<result name="loginFail">/admin/index.jsp</result>
-			<result name="loginSUCCESS">/admin/home.jsp</result>
+			<result name="loginSUCCESS" type="redirectAction">/admin/home.jsp</result>
 			
 		</action>
 		
@@ -84,9 +84,10 @@
 			<result name="saveSUCCESS" type="redirectAction">adminCategory_findAll.action</result>
 			<!-- 删除一级分类 -->
 			<result name="deleteSUCCESS" type="redirectAction">adminCategory_findAll.action</result>
+			<!-- 跳转页面修改一级分类 -->
+			<result name="editSUCCESS">/admin/category/edit.jsp</result>
 			<!-- 修改一级分类 -->
 			<result name="updateSUCCESS" type="redirectAction">adminCategory_findAll.action</result>
-			
 		</action>
 		
 	</package>

@@ -65,8 +65,17 @@ public class CategoryDao extends HibernateDaoSupport {
 	public void delete(Category category) {
 		this.getHibernateTemplate().delete(category);
 	}
-	
-	
+
+	/**
+	 * @方法的名称: update
+	 * @Description: 修改一级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 12:22:06 PM
+	 * @param category void
+	 */
+	public void update(Category category) {
+		this.getHibernateTemplate().update(category);
+	}
 	
 	
 }

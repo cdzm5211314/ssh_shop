@@ -65,6 +65,16 @@ public class CategoryService {
 	public void delete(Category category) {
 		categoryDao.delete(category);
 	}
+	/**
+	 * @方法的名称: update
+	 * @Description: 修改一级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 12:21:40 PM
+	 * @param category void
+	 */
+	public void update(Category category) {
+		categoryDao.update(category);
+	}
 	
 	
 	
