@@ -73,6 +73,13 @@
 			<result name="loginFail">/admin/index.jsp</result>
 			<result name="loginSUCCESS">/admin/home.jsp</result>
 			
+		</action>
+		
+		
+		<!-- 后台一级分类 -->
+		<action name="adminCategory_*" class="adminCategoryAction" method="{1}">
+			<!-- 查询所有一级分类 -->
+			<result name="findAllSUCCESS">/admin/category/list.jsp</result>
 			
 		</action>
 		

@@ -21,13 +21,12 @@
 	
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/dtree.js"></script>
 	<script type="text/javascript">
-		
 		d = new dTree('d');
 		d.add('01',-1,'系统菜单树');
 		d.add('0101','01','用户管理');
 		d.add('010101','0101','用户管理','','','mainFrame');
 		d.add('0102','01','一级分类管理');
-		d.add('010201','0102','一级分类管理','','','mainFrame');
+		d.add('010201','0102','一级分类管理','${pageContext.request.contextPath}/adminCategory_findAll.action','','mainFrame');
 		document.write(d);
 	</script>
 </div>	</td>
