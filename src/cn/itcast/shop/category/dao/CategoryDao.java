@@ -42,6 +42,29 @@ public class CategoryDao extends HibernateDaoSupport {
 	public void save(Category category) {
 		this.getHibernateTemplate().save(category);
 	}
+
+	/**
+	 * @方法的名称: findByCid
+	 * @Description: 根据cid查询一级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 11:20:49 AM
+	 * @param cid
+	 * @return Category
+	 */
+	public Category findByCid(Integer cid) {
+		return this.getHibernateTemplate().get(Category.class, cid);
+	}
+
+	/**
+	 * @方法的名称: delete
+	 * @Description: 删除一级分类数据
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 12:14:23 PM
+	 * @param category void
+	 */
+	public void delete(Category category) {
+		this.getHibernateTemplate().delete(category);
+	}
 	
 	
 	

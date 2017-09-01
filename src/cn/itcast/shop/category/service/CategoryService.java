@@ -44,6 +44,27 @@ public class CategoryService {
 	public void save(Category category) {
 		categoryDao.save(category);
 	}
+	/**
+	 * @方法的名称: findByCid
+	 * @Description: 根据cid查询一级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 11:19:59 AM
+	 * @param cid
+	 * @return Category
+	 */
+	public Category findByCid(Integer cid) {
+		return categoryDao.findByCid(cid);
+	}
+	/**
+	 * @方法的名称: delete
+	 * @Description: 后台删除一级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 1, 2017 12:13:26 PM
+	 * @param category void
+	 */
+	public void delete(Category category) {
+		categoryDao.delete(category);
+	}
 	
 	
 	

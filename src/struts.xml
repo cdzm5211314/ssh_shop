@@ -82,6 +82,10 @@
 			<result name="findAllSUCCESS">/admin/category/list.jsp</result>
 			<!-- 保存一级分类 -->
 			<result name="saveSUCCESS" type="redirectAction">adminCategory_findAll.action</result>
+			<!-- 删除一级分类 -->
+			<result name="deleteSUCCESS" type="redirectAction">adminCategory_findAll.action</result>
+			<!-- 修改一级分类 -->
+			<result name="updateSUCCESS" type="redirectAction">adminCategory_findAll.action</result>
 			
 		</action>
 		
