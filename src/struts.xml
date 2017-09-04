@@ -104,6 +104,12 @@
 			<!-- 修改二级分类 -->
 			<result name="updateSUCCESS" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
 		</action>
+		<!-- 后台商品管理模块 -->
+		<action name="adminProduct_*" class="adminProductAction" method="{1}">
+			<!-- 查询所有商品信息 -->
+			<result name="findAllSUCCESS">/admin/product/list.jsp</result>
+		
+		</action>
 		
 	</package>
 	
