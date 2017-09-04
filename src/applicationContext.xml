@@ -106,7 +106,12 @@
 		<property name="productService" ref="productService"></property>
 		<property name="categorySecondService" ref="categorySecondService"></property>
 	</bean>
-
+	<!-- 后台订单管理的action -->
+	<bean id="adminOrderAction" class="cn.itcast.shop.order.adminorder.AdminOrderAction" scope="prototype">
+		<property name="orderService" ref="orderService"></property>
+	</bean>
+	
+	
 	<!-- Service的配置 =========================== -->
 	<bean id="userService" class="cn.itcast.shop.user.service.UserService">
 		<property name="userDao" ref="userDao"></property>

@@ -119,6 +119,14 @@
 			<!-- 修改商品 -->
 			<result name="updateSUCCESS" type="redirectAction">adminProduct_findAll.action?page=1</result>
 		</action>
+		<!-- 后台订单管理 -->
+		<action name="adminOrder_*" class="adminOrderAction" method="{1}">
+			<!-- 查询所有订单 -->
+			<result name="findAllSUCCESS">/admin/order/list.jsp</result>
+		
+		
+		</action>
+		
 		
 	</package>
 	
