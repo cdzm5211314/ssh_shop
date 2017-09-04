@@ -187,4 +187,15 @@ public class ProductService {
 		productDao.save(product);
 	}
 
+	/**
+	 * @方法的名称: delete
+	 * @Description: 删除商品
+	 * @Author: chenD
+	 * @CreateDate: 2017年9月4日 下午2:17:42
+	 * @param product void
+	 */
+	public void delete(Product product) {
+		productDao.delete(product);
+	}
+
 }

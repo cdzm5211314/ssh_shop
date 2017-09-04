@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import javax.print.attribute.standard.RequestingUserName;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.apache.struts2.ServletActionContext;
@@ -100,6 +102,21 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 		return "saveSUCCESS";
 	}
 	
+	//删除商品操作
+	public String delete(){
+		
+		//先根据id查询商品,在删除
+		product = productService.findById(product.getPid());
+		//也需要删除上传图片
+		String path = product.getImage();
+		if (path != null) {
+			String realPath = ServletActionContext.getServletContext().getRealPath("/"+path);
+			File file = new File(realPath);
+			file.delete();
+		}
+		productService.delete(product);
+		return "deleteSUCCESS";
+	}
 	
 
 }

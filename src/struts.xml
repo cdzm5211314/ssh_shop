@@ -112,6 +112,11 @@
 			<result name="addPageSUCCESS">/admin/product/add.jsp</result>
 			<!-- 保存商品 -->
 			<result name="saveSUCCESS" type="redirectAction">adminProduct_findAll.action?page=1</result>
+			<!-- 删除商品 -->
+			<result name="deleteSUCCESS" type="redirectAction">adminProduct_findAll.action?page=1</result>
+			<!-- 跳转到商品修改页面 -->
+			
+			<!-- 修改商品 -->
 			
 		</action>
 		

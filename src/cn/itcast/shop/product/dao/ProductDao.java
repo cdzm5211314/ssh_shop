@@ -202,4 +202,15 @@ public class ProductDao extends HibernateDaoSupport {
 		this.getHibernateTemplate().save(product);
 	}
 
+	/**
+	 * @方法的名称: delete
+	 * @Description: 删除商品数据
+	 * @Author: chenD
+	 * @CreateDate: 2017年9月4日 下午2:18:15
+	 * @param product void
+	 */
+	public void delete(Product product) {
+		this.getHibernateTemplate().delete(product);
+	}
+
 }
