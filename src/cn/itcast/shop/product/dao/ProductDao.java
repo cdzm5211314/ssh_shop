@@ -213,4 +213,15 @@ public class ProductDao extends HibernateDaoSupport {
 		this.getHibernateTemplate().delete(product);
 	}
 
+	/**
+	 * @方法的名称: update
+	 * @Description: 修稿商品数据
+	 * @Author: chenD
+	 * @CreateDate: 2017年9月4日 下午3:15:21
+	 * @param product void
+	 */
+	public void update(Product product) {
+		this.getHibernateTemplate().update(product);
+	}
+
 }

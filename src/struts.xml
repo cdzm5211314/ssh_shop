@@ -117,7 +117,7 @@
 			<!-- 跳转到商品修改页面 -->
 			<result name="editSUCCESS">/admin/product/edit.jsp</result>
 			<!-- 修改商品 -->
-			
+			<result name="updateSUCCESS" type="redirectAction">adminProduct_findAll.action?page=1</result>
 		</action>
 		
 	</package>

@@ -198,4 +198,15 @@ public class ProductService {
 		productDao.delete(product);
 	}
 
+	/**
+	 * @方法的名称: update
+	 * @Description: 修改商品信息
+	 * @Author: chenD
+	 * @CreateDate: 2017年9月4日 下午3:14:57
+	 * @param product void
+	 */
+	public void update(Product product) {
+		productDao.update(product);
+	}
+
 }

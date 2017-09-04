@@ -8,7 +8,11 @@
 	</HEAD>
 	
 	<body>
-		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/adminProduct_save.action" method="post" enctype="multipart/form-data">
+		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/adminProduct_update.action" method="post" enctype="multipart/form-data">
+			<!-- 不需要修改的部分可以隐藏显示 -->
+			<input type="hidden" name="pid" value="<s:property value="model.pid"/>">
+			<input type="hidden" name="image" value="<s:property value="model.image"/>">
+			
 			&nbsp;
 			<table cellSpacing="1" cellPadding="5" width="100%" align="center" bgColor="#eeeeee" style="border: 1px solid #8ba7e3" border="0">
 				<tr>
@@ -57,8 +61,6 @@
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
 						<select name="is_hot">
-							
-						
 							<option value="1" <s:if test="model.is_hot == 1">selected</s:if>>是</option>
 							<option value="0" <s:if test="model.is_hot == 0">selected</s:if>>否</option>
 						</select>
