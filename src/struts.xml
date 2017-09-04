@@ -108,7 +108,10 @@
 		<action name="adminProduct_*" class="adminProductAction" method="{1}">
 			<!-- 查询所有商品信息 -->
 			<result name="findAllSUCCESS">/admin/product/list.jsp</result>
-		
+			<!-- 添加商品的跳转页面 -->
+			<result name="addPageSUCCESS">/admin/product/add.jsp</result>
+			
+			
 		</action>
 		
 	</package>

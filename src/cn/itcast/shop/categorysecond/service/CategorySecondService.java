@@ -99,6 +99,16 @@ public class CategorySecondService {
 	public void update(CategorySecond categorySecond) {
 		categorySecondDao.update(categorySecond);
 	}
+	/**
+	 * @方法的名称: findAll
+	 * @Description: 查询所有二级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 4, 2017 10:28:44 AM
+	 * @return List<CategorySecond>
+	 */
+	public List<CategorySecond> findAll() {
+		return categorySecondDao.finAll();
+	}
 	
 	
 	

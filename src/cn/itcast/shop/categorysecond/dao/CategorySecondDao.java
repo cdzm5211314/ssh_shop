@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import cn.itcast.shop.category.entity.Category;
 import cn.itcast.shop.categorysecond.entity.CategorySecond;
 import cn.itcast.shop.utils.PageHibernateCallback;
 
@@ -96,6 +97,21 @@ public class CategorySecondDao extends HibernateDaoSupport {
 	 */
 	public void update(CategorySecond categorySecond) {
 		this.getHibernateTemplate().update(categorySecond);
+	}
+
+	/**
+	 * @方法的名称: finAll
+	 * @Description: 查询所有二级分类
+	 * @Author: chenD
+	 * @CreateDate: Sep 4, 2017 10:29:26 AM
+	 * @return List<CategorySecond>
+	 */
+	public List<CategorySecond> finAll() {
+		List<CategorySecond> list = this.getHibernateTemplate().find("from CategorySecond");
+		if (list != null && list.size() > 0) {
+			return list;
+		}
+		return null;
 	}
 	
 	
