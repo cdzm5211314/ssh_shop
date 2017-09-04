@@ -191,4 +191,15 @@ public class ProductDao extends HibernateDaoSupport {
 		return null;
 	}
 
+	/**
+	 * @方法的名称: save
+	 * @Description: 保存商品数据到数据库
+	 * @Author: chenD
+	 * @CreateDate: 2017年9月4日 下午1:49:27
+	 * @param product void
+	 */
+	public void save(Product product) {
+		this.getHibernateTemplate().save(product);
+	}
+
 }

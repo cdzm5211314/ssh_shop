@@ -110,7 +110,8 @@
 			<result name="findAllSUCCESS">/admin/product/list.jsp</result>
 			<!-- 添加商品的跳转页面 -->
 			<result name="addPageSUCCESS">/admin/product/add.jsp</result>
-			
+			<!-- 保存商品 -->
+			<result name="saveSUCCESS" type="redirectAction">adminProduct_findAll.action?page=1</result>
 			
 		</action>
 		

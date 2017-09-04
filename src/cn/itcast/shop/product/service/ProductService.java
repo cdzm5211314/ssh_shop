@@ -176,4 +176,15 @@ public class ProductService {
 		return pageBean;
 	}
 
+	/**
+	 * @方法的名称: save
+	 * @Description: 保存商品
+	 * @Author: chenD
+	 * @CreateDate: 2017年9月4日 下午1:48:49
+	 * @param product void
+	 */
+	public void save(Product product) {
+		productDao.save(product);
+	}
+
 }

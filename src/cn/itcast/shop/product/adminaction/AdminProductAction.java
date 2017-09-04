@@ -3,7 +3,14 @@
  */
 package cn.itcast.shop.product.adminaction;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.reflect.FieldUtils;
+import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -33,6 +40,7 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
 	}
+	
 	private CategorySecondService categorySecondService;
 	public void setCategorySecondService(CategorySecondService categorySecondService) {
 		this.categorySecondService = categorySecondService;
@@ -43,7 +51,20 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 	public void setPage(Integer page) {
 		this.page = page;
 	}
-
+	//文件上传所需要参数
+	private File upload;//上传的文件
+	private String uploadFileName;//接受上传文件的文件名称
+	private String uploadContextType;//接受上传文件的MIME的类型
+	
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
+	public void setUploadContextType(String uploadContextType) {
+		this.uploadContextType = uploadContextType;
+	}
 	//查询所有商品信息并分页显示
 	public String findAll(){
 		//调用service
@@ -62,6 +83,22 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 		return "addPageSUCCESS";
 	}
 	
+	//保存商品的方法
+	public String save() throws IOException{
+		product.setPdate(new Date());
+		//完成文件上传
+		if (upload != null) {
+			//获得文件上传的磁盘的绝对路径
+			String realPath = ServletActionContext.getServletContext().getRealPath("/products");
+			//创建一个文件
+			File diskFile = new File(realPath+"//"+uploadFileName);
+			//文件上传
+			FileUtils.copyFile(upload, diskFile);
+			product.setImage("products/"+uploadFileName);
+		}
+		productService.save(product);
+		return "saveSUCCESS";
+	}
 	
 	
 
