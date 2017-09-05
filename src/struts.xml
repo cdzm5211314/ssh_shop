@@ -6,6 +6,11 @@
 <struts>
     <constant name="struts.devMode" value="false" />
 	<package name="shop" namespace="/" extends="struts-default">
+		<!-- 配置拦截器 -->
+		<interceptors>
+			<interceptor name="privilegeInterceptor" class="cn.itcast.shop.interceptor.PrivilegeInterceptor"></interceptor>
+		</interceptors>
+		
 		<global-results>
 			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
 			<result name="login">/WEB-INF/jsp/login.jsp</result>
@@ -91,6 +96,9 @@
 			<result name="editSUCCESS">/admin/category/edit.jsp</result>
 			<!-- 修改一级分类 -->
 			<result name="updateSUCCESS" type="redirectAction">adminCategory_findAll.action</result>
+			<!-- 配置拦截器 -->
+			<interceptor-ref name="privilegeInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		<!-- 后台二级分类模块 -->
 		<action name="adminCategorySecond_*" class="adminCategorySecondAction" method="{1}">
@@ -106,6 +114,9 @@
 			<result name="editSUCCESS">/admin/categorysecond/edit.jsp</result>
 			<!-- 修改二级分类 -->
 			<result name="updateSUCCESS" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
+			<!-- 配置拦截器 -->
+			<interceptor-ref name="privilegeInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		<!-- 后台商品管理模块 -->
 		<action name="adminProduct_*" class="adminProductAction" method="{1}">
@@ -121,6 +132,9 @@
 			<result name="editSUCCESS">/admin/product/edit.jsp</result>
 			<!-- 修改商品 -->
 			<result name="updateSUCCESS" type="redirectAction">adminProduct_findAll.action?page=1</result>
+			<!-- 配置拦截器 -->
+			<interceptor-ref name="privilegeInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		<!-- 后台订单管理 -->
 		<action name="adminOrder_*" class="adminOrderAction" method="{1}">
@@ -130,6 +144,9 @@
 			<result name="findOrderItemSUCCESS">/admin/order/orderItem.jsp</result>
 			<!-- 修改订单状态 -->
 			<result name="updateStateSUCCESS" type="redirectAction">adminOrder_findAll.action?page=1</result>
+			<!-- 配置拦截器 -->
+			<interceptor-ref name="privilegeInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		
 		
