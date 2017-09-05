@@ -125,6 +125,8 @@
 			<result name="findAllSUCCESS">/admin/order/list.jsp</result>
 			<!-- 根据订单id查询订单项 -->
 			<result name="findOrderItemSUCCESS">/admin/order/orderItem.jsp</result>
+			<!-- 修改订单状态 -->
+			<result name="updateStateSUCCESS" type="redirectAction">adminOrder_findAll.action?page=1</result>
 		</action>
 		
 		

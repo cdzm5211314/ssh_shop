@@ -54,6 +54,15 @@ public class AdminOrderAction extends ActionSupport implements ModelDriven<Order
 		ActionContext.getContext().getValueStack().set("list", list);
 		return "findOrderItemSUCCESS";
 	}
+	//修改订单状态
+	public String updateState(){
+		//先根据订单Id查询订单
+		Order currOrder = orderService.findByOid(order.getOid());
+		//修改订单状态
+		currOrder.setState(3);
+		orderService.update(currOrder);
+		return "updateStateSUCCESS";
+	}
 	
 	
 }
