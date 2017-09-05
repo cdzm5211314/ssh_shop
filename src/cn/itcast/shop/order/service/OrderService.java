@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.shop.order.dao.OrderDao;
 import cn.itcast.shop.order.entity.Order;
+import cn.itcast.shop.order.entity.OrderItem;
 import cn.itcast.shop.utils.PageBean;
 
 /**
@@ -132,6 +133,18 @@ public class OrderService {
 		List<Order> list = orderDao.findByPage(begin, limit);
 		pageBean.setList(list);
 		return pageBean;
+	}
+
+	/**
+	 * @方法的名称: findOrderItem
+	 * @Description: 根据订单id 查询订单项
+	 * @Author: chenD
+	 * @CreateDate: Sep 5, 2017 10:24:23 AM
+	 * @param oid
+	 * @return List<OrderItem>
+	 */
+	public List<OrderItem> findOrderItem(Integer oid) {
+		return orderDao.findOrderItem(oid);
 	}
 
 }

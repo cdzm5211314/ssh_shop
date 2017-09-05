@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.itcast.shop.order.entity.Order;
+import cn.itcast.shop.order.entity.OrderItem;
 import cn.itcast.shop.utils.PageHibernateCallback;
 
 /**
@@ -113,6 +114,23 @@ public class OrderDao extends HibernateDaoSupport {
 	public List<Order> findByPage(Integer begin, Integer limit) {
 		String hql = "from Order order by ordertime desc";
 		List<Order> list = this.getHibernateTemplate().execute(new PageHibernateCallback<Order>(hql,null,begin,limit));
+		if (list != null && list.size() > 0) {
+			return list;
+		}
+		return null;
+	}
+
+	/**
+	 * @方法的名称: findOrderItem
+	 * @Description: 根据订单id查询订单项
+	 * @Author: chenD
+	 * @CreateDate: Sep 5, 2017 10:27:19 AM
+	 * @param oid
+	 * @return List<OrderItem>
+	 */
+	public List<OrderItem> findOrderItem(Integer oid) {
+		String hql = "from OrderItem oi where oi.order.oid = ?";
+		List<OrderItem> list = this.getHibernateTemplate().find(hql,oid);
 		if (list != null && list.size() > 0) {
 			return list;
 		}

@@ -3,11 +3,14 @@
  */
 package cn.itcast.shop.order.adminorder;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import cn.itcast.shop.order.entity.Order;
+import cn.itcast.shop.order.entity.OrderItem;
 import cn.itcast.shop.order.service.OrderService;
 import cn.itcast.shop.utils.PageBean;
 
@@ -42,6 +45,14 @@ public class AdminOrderAction extends ActionSupport implements ModelDriven<Order
 		PageBean<Order> pageBean = orderService.findByPage(page);
 		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
 		return "findAllSUCCESS";
+	}
+	//根据订单id查询订单项
+	public String findOrderItem(){
+		
+		List<OrderItem> list = orderService.findOrderItem(order.getOid());
+		//显示到值栈
+		ActionContext.getContext().getValueStack().set("list", list);
+		return "findOrderItemSUCCESS";
 	}
 	
 	
