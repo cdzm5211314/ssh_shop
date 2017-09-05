@@ -62,6 +62,9 @@
 			<result name="findByUidSUCCESS">/WEB-INF/jsp/orderList.jsp</result>
 			<!-- 根据订单id查询订单 -->
 			<result name="findByOidSUCCESS">/WEB-INF/jsp/order.jsp</result>
+			<!-- 确认收货,修改订单状态 -->
+			<result name="updateStateSUCCESS" type="redirectAction">order_findByUid.action?page=1</result>
+			
 		</action>
 		
 		<!-- 验证码的action -->

@@ -182,5 +182,16 @@ public class OrderAction extends ActionSupport implements ModelDriven<Order>{
 		return "saveSUCCESS";
 	}
 	
+	//确认收获:前台修改订单状态
+	public String updateState(){
+		//先根据id 查询订单
+		Order currOrder = orderService.findByOid(order.getOid());
+		//修改订单状态
+		currOrder.setState(4);
+		orderService.update(currOrder);
+		
+		return "updateStateSUCCESS";
+	}
+	
 	
 }
